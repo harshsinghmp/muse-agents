@@ -87,7 +87,7 @@ New agents must satisfy `spec/agent-format.md` and pass `scripts/build.sh --chec
 
 ## License
 
-No license yet — all rights reserved until one is added.
+MIT — see [LICENSE](LICENSE).
 
 ---
 
