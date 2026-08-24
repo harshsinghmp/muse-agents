@@ -1,0 +1,33 @@
+# muse-agents
+
+> Project Documentation & AI Operational Index
+> Generated on: 2026-08-24T11:58:58.285Z
+
+## Overview
+# Project Overview: muse-agents
+
+## 1. Executive Summary
+- **Project Name**: muse-agents
+- **Archetype**: GENERIC (Latest)
+- **Objective**: Muse Agents - harness-independent AI agent framework for agency operations. Thin agent personas + optional service packs + adapters for any AI harness.
+- **Target Audience / Stakeholders**: Agency clients, end-users, and internal operators.
+
+## 2. Core Value Proposition
+- High-velocity, beautifully crafted, and rigorously tested application.
+- Governed by th...
+
+## Canonical Documents
+- [01_OVERVIEW.md](docs/01_OVERVIEW.md): Scope, goals, and stakeholders
+- [02_ARCHITECTURE.md](docs/02_ARCHITECTURE.md): Stack, topology, and layout
+- [03_ESCALATION_RULES.md](docs/03_ESCALATION_RULES.md): Anti-overengineering hierarchy
+- [04_DESIGN_SYSTEM.md](docs/04_DESIGN_SYSTEM.md): Visual design and tokens
+- [05_DECISION_LOG.md](docs/05_DECISION_LOG.md): Architectural Decision Records
+- [06_ENVIRONMENTS.md](docs/06_ENVIRONMENTS.md): Environment configs & secrets
+- [07_RUNTIME_STATE.md](docs/07_RUNTIME_STATE.md): Verified package & runtime state
+- [08_WORKSTREAMS.md](docs/08_WORKSTREAMS.md): Agency council division mapping
+- [09_HARNESS_PROBES.md](docs/09_HARNESS_PROBES.md): Test criteria and DOM probes
+- [10_UNRESOLVED.md](docs/10_UNRESOLVED.md): Open questions and parking lot
+
+## Reality State
+- [STATE.md](STATE.md): 8-Stage Reality Machine status
+- [SUMMARY.md](SUMMARY.md): Change history and commit ledger

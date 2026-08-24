@@ -1,0 +1,25 @@
+# Project AI Constitution & Behavioral Boundaries
+
+## 🛡️ LifeOS Vibeguard Zero-Leakage Protocol
+1. **Zero Secret Exposure**: NEVER print, echo, or commit raw credentials, API keys (`sk-*`, `ghp_*`, `npm_*`, private keys, database URLs, passwords). Always mask as `[REDACTED]`.
+2. **Safe Environment Handling**: Never ingest entire `.env` files into context when only variable names are needed.
+3. **Pre-Ship Secret Scan**: Mandatory `bun ~/.config/LIFEOS/runtime/TOOLS/SecretScan.ts .` before any commit or handoff.
+
+## 📜 Meaningful Git Commit Protocol (Mandatory)
+Every git commit in this project MUST follow this format:
+```
+<type>(<scope>): <concise-imperative-summary>
+
+- Why: [Motivation or issue solved]
+- What: [Bullet list of specific files or logic changes]
+- Verification: [Proof of clean build, tests, and Nexus gate pass]
+```
+- Allowed types: `feat`, `fix`, `docs`, `style`, `refactor`, `perf`, `test`, `build`, `ci`, `chore`.
+- Vague commit messages (`"update"`, `"fix"`, `"wip"`) are strictly forbidden.
+
+## 🏛️ Agency Governance & Operating Rules
+- **Chief Orchestrator**: **Muse** leads project coordination, contract extraction, and workstream routing.
+- **Evidence Before Claims**: Never claim a bug is fixed or a task is complete based solely on command exit codes. Verify actual rendered HTML, DOM selectors, runtime logs, and browser tests.
+- **Escalation Hierarchy**: Admin/Config Toggle > CSS/Script Tweak > Standard Component > Heavy Custom Automation (Anti-Overengineering).
+- **Reality State Discipline**: Never confuse "discussed" with "implemented". Features only advance in `STATE.md` through verified gates.
+- **Autonomous Revision Limit**: Up to 3 self-correction rounds when deterministic checks fail before escalating to Principal Harsh.

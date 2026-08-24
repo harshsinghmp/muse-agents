@@ -1,0 +1,205 @@
+# muse-agents - Full Canonical Knowledge Base
+
+Generated on: 2026-08-24T11:58:58.285Z
+
+
+=======================================================
+FILE: docs/01_OVERVIEW.md
+=======================================================
+
+# Project Overview: muse-agents
+
+## 1. Executive Summary
+- **Project Name**: muse-agents
+- **Archetype**: GENERIC (Latest)
+- **Objective**: Muse Agents - harness-independent AI agent framework for agency operations. Thin agent personas + optional service packs + adapters for any AI harness.
+- **Target Audience / Stakeholders**: Agency clients, end-users, and internal operators.
+
+## 2. Core Value Proposition
+- High-velocity, beautifully crafted, and rigorously tested application.
+- Governed by the LifeOS Agency Council (Muse, Sol, Jasper, Crew, Nexus).
+
+## 3. Success Metrics & KPIs
+- Sub-second page load times (Core Web Vitals 95+).
+- Zero TypeScript & lint errors on main branch.
+- Full automated test and visual probe verification.
+
+
+=======================================================
+FILE: docs/02_ARCHITECTURE.md
+=======================================================
+
+# Architecture & Runtime Topology
+
+## 1. Stack Specifications
+- **Framework**: generic (Latest release)
+- **Language**: TypeScript (strict mode enabled)
+- **Styling**: Tailwind CSS / Modern CSS tokens
+- **Runtime**: Node.js / Bun
+
+## 2. Data Flow & Structure
+- Client requests routed through standard framework endpoints.
+- Isolated state management with deterministic unidirectional flow.
+
+## 3. Key Directory Layout
+```
+├── docs/             # Canonical project brain (10 authoritative sources)
+├── src/ (or app/)    # Application source code
+├── scripts/          # Automation & verification scripts
+├── tests/            # E2E & visual probe test suite
+├── STATE.md          # 8-Stage Reality Machine
+├── SUMMARY.md        # Rolling change ledger
+├── llms.txt          # Standard LLM discovery index
+└── llms-full.txt     # Complete bundled documentation
+```
+
+
+=======================================================
+FILE: docs/03_ESCALATION_RULES.md
+=======================================================
+
+# Escalation Hierarchy & Anti-Overengineering (Ponytail Doctrine)
+
+## The 4-Tier Escalation Order
+Before writing custom code or generating heavy automation, evaluate solutions in this strict sequence:
+
+1. **Tier 1 (Simplest / Preferred)**: Native Platform Config, Dashboard setting, or Environment variable.
+2. **Tier 2 (Minimal)**: Simple CSS utility, standard framework hook, or existing helper (<15 lines).
+3. **Tier 3 (Controlled)**: Dedicated UI component or standard API route handler.
+4. **Tier 4 (Last Resort)**: Complex state machine, custom microservice, or 400-line automation harness.
+
+> *"Sometimes clicking a checkbox in an admin panel or using a single CSS class is infinitely better than generating 400 lines of glue code."*
+
+
+=======================================================
+FILE: docs/04_DESIGN_SYSTEM.md
+=======================================================
+
+# Design System & Style Architecture
+
+## 1. Visual Philosophy (Jasper)
+- Clean visual hierarchy, curated color ramps (OKLCH / HSL tailored tokens), balanced whitespace.
+- Micro-interactions with purposeful motion (smooth, snappy, non-distracting).
+- Responsive by default: Mobile-first fluid adaptation.
+
+## 2. Token Standards
+- **Typography**: Tailored modern font scales with precise letter-spacing and line-height.
+- **Colors**: Strict background, foreground, primary, muted, border, and accent tokens.
+- **Motion**: Standard cubic-bezier curves for transitions; respect `prefers-reduced-motion`.
+
+
+=======================================================
+FILE: docs/05_DECISION_LOG.md
+=======================================================
+
+# Architectural Decision Records (ADR)
+
+## Format
+Every major architectural decision is recorded using this schema:
+
+### [ADR-001] Project OS Initialization
+- **Date**: 2026-08-24
+- **Status**: APPROVED
+- **Context**: Initialized the project with the LifeOS Agency Council operating system.
+- **Decision**: Adopted the 10 Canonical Docs, 8-Stage Reality Machine, Meaningful Git Commit Protocol, and Nexus verification harness.
+- **Consequences**: Deterministic state tracking, anti-hallucination guardrails, and zero secret leakage.
+
+
+=======================================================
+FILE: docs/06_ENVIRONMENTS.md
+=======================================================
+
+# Environments & Deployment Topology
+
+## 1. Environment Stages
+1. **LOCAL**: Development workspace (`http://localhost:3000` or `http://localhost:4321`).
+2. **STAGING / PREVIEW**: Ephemeral or dedicated staging for review and Playwright testing.
+3. **PRODUCTION**: Live customer-facing environment.
+
+## 2. Secrets Policy
+- Secrets are NEVER stored in git or shared project docs.
+- Use `.env.example` to document expected variable keys without values.
+
+
+=======================================================
+FILE: docs/07_RUNTIME_STATE.md
+=======================================================
+
+# Verified Runtime State
+
+## 1. Current Environment Snapshot
+- **Last Verified Date**: 2026-08-24
+- **Node / Bun Version**: Bun 1.4.0
+- **Active Dependencies**: Initialized with latest framework packages
+
+## 2. Infrastructure Health
+- Dev server: Configured
+- Typecheck: Ready
+- Build pipeline: Ready
+
+
+=======================================================
+FILE: docs/08_WORKSTREAMS.md
+=======================================================
+
+# Active Workstreams & Division Ownership
+
+| Workstream ID | Area | Lead | Status | Active Focus |
+|---|---|---|---|---|
+| **WS-01** | Core Foundation | Sol | LOCAL_VERIFIED | Initial Project Setup |
+| **WS-02** | UI & Design Tokens | Jasper | PROPOSED | Design system foundation |
+| **WS-03** | Staging & Deploy | Crew | PROPOSED | Pipeline configuration |
+| **WS-04** | Security & Audit | Nexus | PROPOSED | Test probes & SecretScan |
+
+
+=======================================================
+FILE: docs/09_HARNESS_PROBES.md
+=======================================================
+
+# Nexus Contract Probes & Test Criteria
+
+## 1. Deterministic Probes
+- **Build Probe**: `npm run build` must exit with code 0.
+- **Typecheck Probe**: `npm run typecheck` must return 0 errors.
+- **Vibeguard Probe**: `bun ~/.config/LIFEOS/runtime/TOOLS/SecretScan.ts .` must return 0 leaks.
+
+## 2. Runtime & Browser Probes (Playwright)
+- **Route Probe**: `GET /` returns HTTP 200.
+- **DOM Probe**: Key layout container renders without crash.
+- **Console Probe**: Zero uncaught runtime errors in browser console.
+
+
+=======================================================
+FILE: docs/10_UNRESOLVED.md
+=======================================================
+
+# Unresolved Questions & Parking Lot
+
+## 1. Open Architectural Questions
+- [ ] Finalize production deployment target (Vercel, Cloudflare, VPS, Docker).
+- [ ] Define third-party API integrations and webhooks.
+
+## 2. Parking Lot
+- Ideas discussed but not yet approved for the active roadmap.
+
+
+=======================================================
+FILE: STATE.md
+=======================================================
+
+# Reality State Machine
+
+> **Rule**: An item only moves from PROPOSED to PROD_VERIFIED when verified with deterministic evidence.
+
+```
+[PROPOSED] → [APPROVED] → [LOCAL_DEV] → [LOCAL_VERIFIED] → [STAGING_DEPLOYED] → [STAGING_VERIFIED] → [PROD_DEPLOYED] → [PROD_VERIFIED]
+```
+
+## Current Workstream States
+
+| Item / Feature | State | Owner | Verification Evidence |
+|---|---|---|---|
+| **Project OS Bootstrap** | `LOCAL_VERIFIED` | Muse | 10 Docs + .agentrules + Nexus probes generated |
+| **Design System Tokens** | `PROPOSED` | Jasper | Pending implementation |
+| **Core App Logic** | `PROPOSED` | Sol | Pending implementation |
+| **Nexus Probe Suite** | `LOCAL_VERIFIED` | Nexus | scripts/nexus_verify.sh initialized |

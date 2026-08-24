@@ -1,0 +1,53 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+build/
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Agents
+.claude/
+.opencode/
+.pi/
+.jez/
+.memory/
+.codex/
+.agents/
+.codegraph/
+.crush/
+.omo/
+.playwright/
+.slim/
+
+# IDE & ADE
+.zed/
+.orca/
+.cursor/
+.antigravity/
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+
+# Test coverage
+coverage/
+.nyc_output/
+
+# Temporary files
+tmp/
+temp/
+*.tmp
