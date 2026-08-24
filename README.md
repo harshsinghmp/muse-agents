@@ -5,6 +5,8 @@
 Harness-independent AI agent definitions for running a web agency — 17 core agents across 7 divisions, plus opt-in packs.
 
 ![GitHub Repo stars](https://img.shields.io/github/stars/harshsinghmp/muse-agents?style=for-the-badge)
+![License](https://img.shields.io/github/license/harshsinghmp/muse-agents?style=for-the-badge)
+![GitHub tag](https://img.shields.io/github/tag/harshsinghmp/muse-agents?style=for-the-badge)
 
 </div>
 
