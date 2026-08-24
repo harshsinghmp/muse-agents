@@ -23,12 +23,14 @@ cd muse-agents
 scripts/build.sh --check
 
 # install into OpenCode (~/.config/opencode/agents/)
-scripts/install.sh --core                # 17 core agents
+scripts/install.sh --core                # opencode (default), 17 core agents
+scripts/install.sh --harness codex --all # codex TOML agents
 scripts/install.sh --packs video,audit   # selected packs
-scripts/install.sh --all                 # everything (37 agents)
 ```
 
 Dispatch by trigger words listed in each agent's Role section. Code work defaults to `backend-arch` triage. Every deliverable passes `nexus-reviewer` before client-facing release.
+
+Other harnesses (Claude Code renderer, Hermes ingestion, orchestrator-only tools): [adapters/README.md](adapters/README.md).
 
 ## Project Structure
 

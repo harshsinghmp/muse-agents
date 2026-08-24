@@ -1,11 +1,11 @@
 #!/usr/bin/env node
-// Renders canonical muse-agents definitions into OpenCode subagent files.
+// Renders canonical muse-agents definitions into Codex TOML agents.
 import { readFileSync, writeFileSync, mkdirSync, readdirSync } from 'node:fs';
 import { join, dirname, basename } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
-const outDir = join(root, 'dist', 'opencode');
+const outDir = join(root, 'dist', 'codex');
 
 function listAgents(dir) {
   try {
@@ -16,10 +16,7 @@ function listAgents(dir) {
 }
 
 let scope = process.argv[2] ?? '--core';
-let packs = [];
-if (scope === '--packs') {
-  packs = (process.argv[3] ?? '').split(',').filter(Boolean);
-}
+const packs = scope === '--packs' ? (process.argv[3] ?? '').split(',').filter(Boolean) : [];
 
 const files = new Set();
 for (const d of readdirSync(join(root, 'agents')))
@@ -38,6 +35,11 @@ if (files.size === 0) {
 }
 
 mkdirSync(outDir, { recursive: true });
+
+function tomlString(s) {
+  return JSON.stringify(s); // JSON string escaping is valid TOML basic-string escaping
+}
+
 for (const f of files) {
   const raw = readFileSync(f, 'utf8');
   const end = raw.indexOf('\n---\n', 4);
@@ -46,14 +48,21 @@ for (const f of files) {
     continue;
   }
   const fm = raw.slice(4, end);
-  const body = raw.slice(end + 5);
+  const body = raw.slice(end + 5).trim();
   const name = fm.match(/^name: *(.+)$/m)?.[1];
   const mission = fm.match(/^mission: *(.+)$/m)?.[1] ?? '';
   if (!name) {
     console.error(`skip ${f}: no name`);
     continue;
   }
-  const out = `---\nname: ${name}\ndescription: ${mission}\nmode: subagent\n---\n\n${body}`;
-  writeFileSync(join(outDir, `${basename(f)}`), out);
+  // Codex agent identity = mission + trigger words/body instructions
+  const instructions = `${mission}\n\n${body}`;
+  const toml = [
+    `name = ${tomlString(name.replace(/-/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase()))}`,
+    `description = ${tomlString(mission)}`,
+    `developer_instructions = ${tomlString(instructions)}`,
+    '',
+  ].join('\n');
+  writeFileSync(join(outDir, `${name}.toml`), toml);
 }
 console.log(`rendered ${files.size} agents -> ${outDir}`);

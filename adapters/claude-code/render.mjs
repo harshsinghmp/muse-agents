@@ -1,11 +1,12 @@
 #!/usr/bin/env node
-// Renders canonical muse-agents definitions into OpenCode subagent files.
+// Renders canonical muse-agents definitions into Claude Code subagent files.
+// NOTE: renderer only — never installs into ~/.claude (zero-claude rule R1).
 import { readFileSync, writeFileSync, mkdirSync, readdirSync } from 'node:fs';
 import { join, dirname, basename } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
-const outDir = join(root, 'dist', 'opencode');
+const outDir = join(root, 'dist', 'claude-code');
 
 function listAgents(dir) {
   try {
@@ -16,10 +17,7 @@ function listAgents(dir) {
 }
 
 let scope = process.argv[2] ?? '--core';
-let packs = [];
-if (scope === '--packs') {
-  packs = (process.argv[3] ?? '').split(',').filter(Boolean);
-}
+const packs = scope === '--packs' ? (process.argv[3] ?? '').split(',').filter(Boolean) : [];
 
 const files = new Set();
 for (const d of readdirSync(join(root, 'agents')))
@@ -53,7 +51,7 @@ for (const f of files) {
     console.error(`skip ${f}: no name`);
     continue;
   }
-  const out = `---\nname: ${name}\ndescription: ${mission}\nmode: subagent\n---\n\n${body}`;
+  const out = `---\nname: ${name}\ndescription: ${mission}\n---\n\n${body}`;
   writeFileSync(join(outDir, `${basename(f)}`), out);
 }
 console.log(`rendered ${files.size} agents -> ${outDir}`);
