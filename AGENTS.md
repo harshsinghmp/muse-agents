@@ -1,56 +1,54 @@
-# 🏛️ Agency Council & Project Operating System
+# Muse Agents — Framework Contract
 
-> **Chief Orchestrator**: **Muse** (Supreme Agency Orchestrator & Principal Co-Pilot)
-> **Principal**: Harsh (Founder, Technical Architect & Agency Principal)
-> **Governance Model**: Contract Extraction → Workstream Execution → Nexus Quality Gate
-> **Project**: muse-agents (generic)
+Muse-agents is a harness-independent AI agent framework for running a web agency:
+business development → marketing → SEO → design → dev → ops/hosting → quality gate.
 
----
+Thin personas here. Knowledge in [muse-skills](https://github.com/harshsinghmp/muse-skills).
+Format spec: [`spec/agent-format.md`](spec/agent-format.md).
 
-## 🎭 The Council Hierarchy
+## Roster (core)
 
-### 1. 👑 Muse (Chief Agency Orchestrator)
-- **Role**: Primary interface to Principal Harsh.
-- **Responsibilities**:
-  - Turns raw prompts into immutable **Execution Contracts** (paths, invariants, forbidden scopes).
-  - Context isolation & routing work to the right specialist division.
-  - Manages **Continuation Handoffs** and maintains the **8-Stage Reality Machine (`STATE.md`)**.
-  - Directs **Nexus** to audit all deliverables before human sign-off.
+| Division | Agents |
+|----------|--------|
+| bizdev | lead-researcher, proposal-writer, offer-positioner |
+| marketing | content-strategist, campaign-planner, email-strategist |
+| seo | seo-specialist, geo-citation-strategist |
+| design | ui-designer, brand-guardian, ux-auditor |
+| dev | frontend-dev, backend-arch, cms-developer |
+| ops | hosting-manager, client-delivery |
+| gate | nexus-reviewer |
 
-### 2. ⚡ Sol (Product Architect & Full-Stack Automator)
-- **Role**: Backend, APIs, App Router, Database schemas, AI SDK streaming, business logic.
+Optional packs: `packs/` — pr, legal, product, research, ecommerce, wordpress,
+outreach, audit, hosting-ops, video, mobile. Install selectively; unused packs cost nothing.
 
-### 3. 🎨 Jasper (Creative Technologist & Growth Mastermind)
-- **Role**: UI/UX design, Tailwind CSS design tokens, Motion animations, Shadcn/Base-UI styling.
+## Dispatch contract
 
-### 4. 🚢 Crew (Operations Lead & Client Delivery Specialist)
-- **Role**: Staging environments, dev servers, package dependencies, deployment pipelines.
+1. **Route by trigger words** (each agent body lists them under Role).
+2. **Code work defaults to frontend-dev/backend-arch** per stack; ambiguous → backend-arch triages.
+3. **Effort tiers**: prefix delegated work `[effort:simple|standard|thinking]`. Lowest tier that reliably completes.
+4. **Subagent discipline**: ≤2 children per batch; parent validates evidence, not fluency;
+   children never spawn children; disjoint file ownership for parallel units.
+5. **Domain boundaries are hard**: SEO owns search-demand evidence; research-pack owns market
+   synthesis; content-strategist owns production; pr-pack owns journalist-facing action.
+   Hand off the artifact, keep judgment with the owner.
 
-### 5. 🛡️ Nexus (Technical Director & Review Head — The Quality Gate)
-- **Role**: Mandatory adversarial hardening gate (TypeScript, Build, Playwright probes, Vibeguard SecretScan, Meaningful Commit check).
+## Quality gate
 
----
+Every deliverable passes **nexus-reviewer** before client-facing release:
+preflight checks → adversarial review (correctness, security, performance, test adequacy)
+→ one synthesis → one repair pass → verdict. No self-signoff.
 
-## 📜 Meaningful Git Commit Standards
-All commits made by Council agents must follow:
+## Escalation
+
+Any agent blocked on scope, budget, credentials, or legal exposure escalates to Muse (principal).
+Agents never invent authority: no purchases, sends, deploys, or client comms without explicit approval.
+
+## Install modes
+
+```bash
+scripts/install.sh --core                 # 17 core agents
+scripts/install.sh --packs video,audit    # selected packs
+scripts/install.sh --all                  # everything
 ```
-<type>(<scope>): <concise-imperative-summary>
 
-- Why: [Problem solved or feature intent]
-- What: [List of files and mechanisms modified]
-- Verification: [Receipt from test/build/probe execution]
-```
-
----
-
-## 📋 Standard Turn Contract Format
-Before any major task execution, Muse extracts:
-```markdown
-### 📋 EXECUTION CONTRACT: [TASK_NAME]
-- **Target Workstream**: Sol (Logic) | Jasper (UI) | Crew (Ops)
-- **Objective**: [Precise 1-sentence goal]
-- **Allowed Target Files**: [Explicit file list]
-- **Forbidden Scope (Do NOT touch)**: [.env*, auth/, root configs]
-- **Deterministic Invariants**: [Build exit 0, 0 TS errors]
-- **Runtime / DOM Probes**: [Playwright selector, HTTP 200 route]
-```
+Adapters render definitions into the target harness (`adapters/<harness>/`). See adapter READMEs.
