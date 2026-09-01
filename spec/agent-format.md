@@ -18,7 +18,7 @@ packs/<pack-name>/<agent-name>.md     # optional packs
 ```yaml
 ---
 name: string                  # kebab-case id, matches filename
-division: string              # bizdev|marketing|seo|design|dev|ops|gate|<pack-name>
+division: string              # bizdev|marketing|seo|design|dev|ops|gate|research|<pack-name>
 mission: string               # one line, ≤120 chars
 skills: [string]              # skill names from muse-skills (or workspace skill dirs)
 boundaries:
@@ -32,10 +32,33 @@ optional: false               # true only inside packs/
 ### Field rules
 
 - `name`: `^[a-z][a-z0-9-]+$`
-- `division`: one of the seven core divisions or the pack name
+- `division`: one of the core divisions (bizdev, marketing, seo, design, dev, ops, gate, research) or the pack name
 - `skills`: every entry MUST resolve to a real skill at render time; adapters fail on dangling refs
 - `never`: 2–5 items. Fewer = vague agent. More = distrust.
 - `handoffs`: names must exist in core roster ∪ same pack. No cross-pack handoffs in v1.
+
+## Pack Manifest schema (`packs/<pack-name>/pack.json`)
+
+Optional packs may include a `pack.json` manifest defining topology and metadata:
+
+```json
+{
+  "name": "string",
+  "version": "semver",
+  "description": "string",
+  "topology": {
+    "entry": "agent-name",
+    "loop": ["agent-1", "agent-2", "agent-3"],
+    "flow": "topology string or mermaid diagram"
+  },
+  "budget_guardrails": {
+    "max_iterations": 5,
+    "plateau_threshold": 0.05,
+    "cost_ceiling_usd": 2.00
+  },
+  "agents": ["agent-1", "agent-2"]
+}
+```
 
 ## Body structure (required sections, in order)
 

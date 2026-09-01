@@ -1,6 +1,6 @@
 # muse-agents - Full Canonical Knowledge Base
 
-Generated on: 2026-08-24T11:58:58.285Z
+Generated on: 2026-09-01T14:26:26.388Z
 
 
 =======================================================
@@ -32,24 +32,31 @@ FILE: docs/02_ARCHITECTURE.md
 # Architecture & Runtime Topology
 
 ## 1. Stack Specifications
-- **Framework**: generic (Latest release)
-- **Language**: TypeScript (strict mode enabled)
-- **Styling**: Tailwind CSS / Modern CSS tokens
-- **Runtime**: Node.js / Bun
+- **Format**: Harness-neutral YAML frontmatter Markdown definitions (`spec/agent-format.md`)
+- **Language**: TypeScript / Bun / Node.js / Python3
+- **Adapters**: OpenCode subagents, Codex TOML, Claude Code
+- **Validation**: Python/Bun specification validator and automated test suite
 
-## 2. Data Flow & Structure
-- Client requests routed through standard framework endpoints.
-- Isolated state management with deterministic unidirectional flow.
+## 2. Multi-Agent Topology & Gauntlet Loop
+- **Gauntlet Loop**: Bounded iterative refinement pack (`packs/gauntlet/`)
+  - `[User/Prompt] -> [Judge: Freeze Contract] -> [Builder: Write Diff] -> [Critic: Fresh Review with review.json] -> [Judge: Pass or Fix] -> (Fix -> [Integrator: Apply 1 Largest Fix] -> Critic | Pass -> [Complete])`
+- **Governed Secretary**: Evidence-grounded staff-work synthesizer (`agents/ops/secretary.md` & `packs/secretary/`) with SHA-256 approval tokens and dissent mandates.
+- **Quality Gate**: Adversarial quality verification via `nexus-reviewer`.
 
-## 3. Key Directory Layout
+## 3. Directory Layout
 ```
-├── docs/             # Canonical project brain (10 authoritative sources)
-├── src/ (or app/)    # Application source code
-├── scripts/          # Automation & verification scripts
-├── tests/            # E2E & visual probe test suite
-├── STATE.md          # 8-Stage Reality Machine
-├── SUMMARY.md        # Rolling change ledger
-├── llms.txt          # Standard LLM discovery index
+muse-agents/
+├── adapters/         # Target harness renderers (opencode, codex, claude-code)
+├── agents/           # 21 core agent personas across 8 divisions
+├── packs/            # 13 opt-in specialized packs (gauntlet, secretary, etc.)
+├── scripts/          # build, install, llms generator, nexus verify
+├── spec/             # Canonical agent and pack specifications
+├── tests/            # Unit and probe test suites
+├── AGENTS.md         # Framework contract and dispatch rules
+├── README.md         # Documentation and quick start
+├── STATE.md          # Reality state
+├── SUMMARY.md        # Change ledger
+├── llms.txt          # LLM discovery index
 └── llms-full.txt     # Complete bundled documentation
 ```
 
@@ -146,10 +153,11 @@ FILE: docs/08_WORKSTREAMS.md
 
 | Workstream ID | Area | Lead | Status | Active Focus |
 |---|---|---|---|---|
-| **WS-01** | Core Foundation | Sol | LOCAL_VERIFIED | Initial Project Setup |
-| **WS-02** | UI & Design Tokens | Jasper | PROPOSED | Design system foundation |
-| **WS-03** | Staging & Deploy | Crew | PROPOSED | Pipeline configuration |
-| **WS-04** | Security & Audit | Nexus | PROPOSED | Test probes & SecretScan |
+| **WS-01** | Product & Development | Sol | SHIPPED | Frontend, backend, CMS, code reviewer, Gauntlet builder & integrator |
+| **WS-02** | Growth & Verification | Jasper | SHIPPED | UI/UX, brand, copy, SEO, and source Fact-Checker |
+| **WS-03** | Delivery & Governance | Crew | SHIPPED | Client delivery, hosting, Governed Secretary & Chief of Staff |
+| **WS-04** | Quality Gate & Gauntlet | Nexus | SHIPPED | Adversarial verification, Gauntlet critic & judge, SecretScan |
+
 
 
 =======================================================
@@ -199,7 +207,9 @@ FILE: STATE.md
 
 | Item / Feature | State | Owner | Verification Evidence |
 |---|---|---|---|
-| **Project OS Bootstrap** | `LOCAL_VERIFIED` | Muse | 10 Docs + .agentrules + Nexus probes generated |
-| **Design System Tokens** | `PROPOSED` | Jasper | Pending implementation |
-| **Core App Logic** | `PROPOSED` | Sol | Pending implementation |
-| **Nexus Probe Suite** | `LOCAL_VERIFIED` | Nexus | scripts/nexus_verify.sh initialized |
+| **Project Framework & Spec** | `PROD_VERIFIED` | Muse | `spec/agent-format.md`, `build.sh --check` pass |
+| **21 Core Agent Personas** | `PROD_VERIFIED` | Sol/Jasper/Crew/Nexus | 21 core agents across 8 divisions verified |
+| **Gauntlet Multi-Agent Loop** | `PROD_VERIFIED` | Nexus/Sol | `packs/gauntlet/` manifest + 4 agents pass |
+| **Governed Secretary Pack** | `PROD_VERIFIED` | Crew | `packs/secretary/` manifest + 4 agents pass |
+| **Multi-Harness Adapters** | `PROD_VERIFIED` | Sol | OpenCode, Codex, Claude Code renderers pass |
+| **Automated Test Suite** | `PROD_VERIFIED` | Nexus | 24 bun tests passing across unit test suites |

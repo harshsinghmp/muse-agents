@@ -1,0 +1,6 @@
+{
+  "name": "secretary",
+  "version": "1.0.0",
+  "description": "Governed staff-work profiles providing specialized administrative, communications, operational, and research synthesis workflows.",
+  "agents": ["general-secretary", "communications", "operations", "research-lead"]
+}

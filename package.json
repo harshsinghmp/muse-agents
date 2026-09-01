@@ -1,0 +1,22 @@
+{
+  "name": "muse-agents",
+  "version": "1.1.0",
+  "description": "Harness-independent AI agent definitions for running a web agency",
+  "type": "module",
+  "scripts": {
+    "test": "bun test tests/unit",
+    "test:all": "bun test tests/unit",
+    "build": "bash scripts/build.sh --check",
+    "generate-llms": "bun scripts/generate_llms_txt.ts"
+  },
+  "keywords": [
+    "ai-agents",
+    "multi-agent",
+    "opencode",
+    "codex",
+    "claude-code",
+    "agency"
+  ],
+  "author": "Harsh Singh <harshsinghmp>",
+  "license": "MIT"
+}

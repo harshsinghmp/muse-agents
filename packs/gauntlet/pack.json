@@ -1,0 +1,16 @@
+{
+  "name": "gauntlet",
+  "version": "1.0.0",
+  "description": "Bounded multi-agent iterative refinement loop with frozen contracts, adversarial reviews, surgical merges, and plateau detection.",
+  "topology": {
+    "entry": "judge",
+    "loop": ["builder", "critic", "integrator", "judge"],
+    "flow": "[Prompt] -> [Judge: Freeze Contract] -> [Builder: Write Diff] -> [Critic: Fresh Review] -> [Judge: Pass or Fix] -> (Fix -> [Integrator: Apply 1 Largest Fix] -> Critic | Pass -> [Complete])"
+  },
+  "budget_guardrails": {
+    "max_iterations": 5,
+    "plateau_threshold": 0.05,
+    "cost_ceiling_usd": 2.00
+  },
+  "agents": ["builder", "critic", "integrator", "judge"]
+}

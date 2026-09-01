@@ -10,7 +10,10 @@
 
 | Item / Feature | State | Owner | Verification Evidence |
 |---|---|---|---|
-| **Project OS Bootstrap** | `LOCAL_VERIFIED` | Muse | 10 Docs + .agentrules + Nexus probes generated |
-| **Design System Tokens** | `PROPOSED` | Jasper | Pending implementation |
-| **Core App Logic** | `PROPOSED` | Sol | Pending implementation |
-| **Nexus Probe Suite** | `LOCAL_VERIFIED` | Nexus | scripts/nexus_verify.sh initialized |
+| **Project Framework & Spec** | `PROD_VERIFIED` | Muse | `spec/agent-format.md`, `build.sh --check` pass |
+| **21 Core Agent Personas** | `PROD_VERIFIED` | Sol/Jasper/Crew/Nexus | 21 core agents across 8 divisions verified |
+| **Gauntlet Multi-Agent Loop** | `PROD_VERIFIED` | Nexus/Sol | `packs/gauntlet/` manifest + 4 agents pass |
+| **Governed Secretary Pack** | `PROD_VERIFIED` | Crew | `packs/secretary/` manifest + 4 agents pass |
+| **Multi-Harness Adapters** | `PROD_VERIFIED` | Sol | OpenCode, Codex, Claude Code renderers pass |
+| **Automated Test Suite** | `PROD_VERIFIED` | Nexus | 24 bun tests passing across unit test suites |
+

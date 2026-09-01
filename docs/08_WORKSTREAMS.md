@@ -2,7 +2,8 @@
 
 | Workstream ID | Area | Lead | Status | Active Focus |
 |---|---|---|---|---|
-| **WS-01** | Core Foundation | Sol | LOCAL_VERIFIED | Initial Project Setup |
-| **WS-02** | UI & Design Tokens | Jasper | PROPOSED | Design system foundation |
-| **WS-03** | Staging & Deploy | Crew | PROPOSED | Pipeline configuration |
-| **WS-04** | Security & Audit | Nexus | PROPOSED | Test probes & SecretScan |
+| **WS-01** | Product & Development | Sol | SHIPPED | Frontend, backend, CMS, code reviewer, Gauntlet builder & integrator |
+| **WS-02** | Growth & Verification | Jasper | SHIPPED | UI/UX, brand, copy, SEO, and source Fact-Checker |
+| **WS-03** | Delivery & Governance | Crew | SHIPPED | Client delivery, hosting, Governed Secretary & Chief of Staff |
+| **WS-04** | Quality Gate & Gauntlet | Nexus | SHIPPED | Adversarial verification, Gauntlet critic & judge, SecretScan |
+

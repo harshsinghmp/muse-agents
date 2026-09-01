@@ -1,7 +1,7 @@
 # muse-agents
 
 > Project Documentation & AI Operational Index
-> Generated on: 2026-08-24T11:58:58.285Z
+> Generated on: 2026-09-01T14:26:26.387Z
 
 ## Overview
 # Project Overview: muse-agents
