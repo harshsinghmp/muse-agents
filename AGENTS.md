@@ -72,18 +72,18 @@ Follow this Git workflow strictly.
 
 ## Branches
 
-- `master` → Production. **Never commit directly to** `master`**.**
-- `dev` → Staging/integration branch.
-- `feature/*` → Created from `dev` for individual features/tasks.
-- `release/*` → Created from `dev` when changes are ready for production; merge into `master`, then back into `dev`.
-- `hotfix/*` → Created from `master` for urgent production fixes; merge into both `master` and `dev`.
+- `main` → Production (tracks `origin/main`). **Never commit directly to** `main`**.**
+- `dev` → Staging/integration branch (remote `origin/dev`; local branch has no upstream configured).
+- `feat/*` → Created from `dev` for individual features/tasks.
+- `release/*` → Created from `dev` when changes are ready for production; merge into `main`, then back into `dev`.
+- `hotfix/*` → Created from `main` for urgent production fixes; merge into both `main` and `dev`.
 
 ## Rules
 
-- Feature branches must be created from `dev`.
+- Feature branches (`feat/*`) must be created from `dev`.
 - Use descriptive branch names.
-- Every merge into `dev` or `master` requires a Pull Request and code review.
-- Do not rewrite or force-push `master` or `dev` history.
+- Every merge into `dev` or `main` requires a Pull Request and code review.
+- Do not rewrite or force-push `main` or `dev` history.
 - Prefer `rebase` within feature branches when integrating changes and keeping history linear.
 - For production bugs, use `hotfix/*` rather than merging unfinished work from `dev`.
 - Prefer a new revert commit over rewriting shared history.
@@ -125,6 +125,6 @@ All releases and git tags must follow strict `vX.Y.Z` semantic versioning:
 ### Invariants:
 
 - Sync `package.json` `"version"` with the `vX.Y.Z` tag in the release commit.
-- Stage on `release/vX.Y.Z` from `dev` → merge to `master` → back-merge to `dev`.
+- Stage on `release/vX.Y.Z` from `dev` → merge to `main` → back-merge to `dev`.
 - CI publishes on `v*` tag push (`git tag -a vX.Y.Z -m "release: vX.Y.Z"`). Never `npm publish` manually.
 
