@@ -18,5 +18,8 @@
     "agency"
   ],
   "author": "Harsh Singh <harshsinghmp>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "musememory": "^3.0.2"
+  }
 }
