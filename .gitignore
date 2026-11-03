@@ -55,4 +55,7 @@ temp/
 # worktrees
 .worktrees/
 
+# Syncthing local version backups
+.stversions/
+
 
