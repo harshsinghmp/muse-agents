@@ -15,5 +15,5 @@
 | **Gauntlet Multi-Agent Loop** | `PROD_VERIFIED` | Nexus/Sol | `packs/gauntlet/` manifest + 4 agents pass |
 | **Governed Secretary Pack** | `PROD_VERIFIED` | Crew | `packs/secretary/` manifest + 4 agents pass |
 | **Multi-Harness Adapters** | `PROD_VERIFIED` | Sol | OpenCode, Codex, Claude Code renderers pass |
-| **Automated Test Suite** | `PROD_VERIFIED` | Nexus | 24 bun tests passing across unit test suites |
+| **Automated Test Suite** | `PROD_VERIFIED` | Nexus | 26 bun tests passing across unit test suites |
 

@@ -1,6 +1,6 @@
 # muse-agents - Full Canonical Knowledge Base
 
-Generated on: 2026-09-01T14:26:26.388Z
+Generated on: 2026-11-03T06:25:51.709Z
 
 
 =======================================================
@@ -111,6 +111,13 @@ Every major architectural decision is recorded using this schema:
 - **Decision**: Adopted the 10 Canonical Docs, 8-Stage Reality Machine, Meaningful Git Commit Protocol, and Nexus verification harness.
 - **Consequences**: Deterministic state tracking, anti-hallucination guardrails, and zero secret leakage.
 
+### [ADR-002] Governed Agent Packs & Gauntlet Loop
+- **Date**: 2026-09-01
+- **Status**: APPROVED
+- **Context**: Agency workflows required bounded iterative refinement loops and evidence-grounded staff operations.
+- **Decision**: Introduced Gauntlet multi-agent pack (`packs/gauntlet/` with builder, critic, integrator, judge) and Governed Secretary pack (`packs/secretary/`), backed by automated Bun unit test verification.
+- **Consequences**: Self-grading prevented by protocol; plateau-detection limits infinite loops; staff work requires dissent sections and approval tokens.
+
 
 =======================================================
 FILE: docs/06_ENVIRONMENTS.md
@@ -135,14 +142,15 @@ FILE: docs/07_RUNTIME_STATE.md
 # Verified Runtime State
 
 ## 1. Current Environment Snapshot
-- **Last Verified Date**: 2026-08-24
-- **Node / Bun Version**: Bun 1.4.0
-- **Active Dependencies**: Initialized with latest framework packages
+- **Last Verified Date**: 2026-11-03
+- **Node / Bun Version**: Bun 1.4.3
+- **Active Dependencies**: `musememory` ^3.0.2 (memory tooling; no runtime imports)
 
 ## 2. Infrastructure Health
-- Dev server: Configured
-- Typecheck: Ready
-- Build pipeline: Ready
+- Roster Validation: `bash scripts/build.sh --check` passed (21 core + 28 pack agents valid across 13 packs)
+- Unit Test Suite: `bun test tests/unit` passed (26 passing tests across 4 test suites)
+- LLMS Index: Dynamic generator `bun scripts/generate_llms_txt.ts` verified
+- Pre-Ship Gate: `scripts/nexus_verify.sh` exits 0; Playwright probe non-fatal without `@playwright/test`
 
 
 =======================================================
@@ -167,14 +175,14 @@ FILE: docs/09_HARNESS_PROBES.md
 # Nexus Contract Probes & Test Criteria
 
 ## 1. Deterministic Probes
-- **Build Probe**: `npm run build` must exit with code 0.
-- **Typecheck Probe**: `npm run typecheck` must return 0 errors.
-- **Vibeguard Probe**: `bun ~/.config/LIFEOS/runtime/TOOLS/SecretScan.ts .` must return 0 leaks.
+- **Build / Roster Probe**: `bun run build` (`bash scripts/build.sh --check`) must exit with code 0.
+- **Unit Test Probe**: `bun test tests/unit` must return 0 failures across all unit test suites.
+- **Agent Specification Probe**: All agents must satisfy schema, frontmatter, and section ordering in `spec/agent-format.md`.
 
-## 2. Runtime & Browser Probes (Playwright)
-- **Route Probe**: `GET /` returns HTTP 200.
-- **DOM Probe**: Key layout container renders without crash.
-- **Console Probe**: Zero uncaught runtime errors in browser console.
+## 2. Runtime & Harness Probes
+- **OpenCode Adapter Probe**: `node adapters/opencode/render.mjs --core` generates valid subagent markdown definitions.
+- **Codex Adapter Probe**: `node adapters/codex/render.mjs --all` generates valid TOML agent definitions.
+- **Claude Code Adapter Probe**: `node adapters/claude-code/render.mjs --all` generates valid agent markdown files.
 
 
 =======================================================
@@ -212,4 +220,4 @@ FILE: STATE.md
 | **Gauntlet Multi-Agent Loop** | `PROD_VERIFIED` | Nexus/Sol | `packs/gauntlet/` manifest + 4 agents pass |
 | **Governed Secretary Pack** | `PROD_VERIFIED` | Crew | `packs/secretary/` manifest + 4 agents pass |
 | **Multi-Harness Adapters** | `PROD_VERIFIED` | Sol | OpenCode, Codex, Claude Code renderers pass |
-| **Automated Test Suite** | `PROD_VERIFIED` | Nexus | 24 bun tests passing across unit test suites |
+| **Automated Test Suite** | `PROD_VERIFIED` | Nexus | 26 bun tests passing across unit test suites |
